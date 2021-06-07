@@ -153,7 +153,7 @@
 
                 <!-- Data Mobil -->
                 <li class="side-nav-menu-item">
-                    <a class="side-nav-menu-link media align-items-center" href="#">
+                    <a class="side-nav-menu-link media align-items-center" href="{{ route('cars.index') }}">
                 <span class="side-nav-menu-icon d-flex mr-3">
                     <i class="gd-car"></i>
                 </span>

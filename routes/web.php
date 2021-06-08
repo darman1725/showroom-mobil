@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,6 @@ Route::get('/master', function () {
     return view('layouts.master');
 });
 
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::resource('cars', CarController::class);
 Route::resource('brands', BrandController::class);

@@ -35,7 +35,7 @@
                 <div class="col-12 col-md-8">
                     <dl class="row">
                         <dt class="col-sm-3">Merk</dt>
-                        <dd class="col-sm-9">{{ $car->merk }}</dd>
+                        <dd class="col-sm-9">{{ $car->brand->nama }}</dd>
                       
                         <dt class="col-sm-3">Deskripsi</dt>
                         <dd class="col-sm-9">{{ $car->deskripsi }}</dd>

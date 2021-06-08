@@ -37,8 +37,12 @@
                             <input type="text" class="form-control" id="nama" name="nama">
                         </div>
                         <div class="form-group col-12 col-md-6">
-                            <label for="merk">Merk Mobil</label>
-                            <input type="text" class="form-control" id="merk" name="merk">
+                            <label for="brand_id">Merk Mobil</label>
+                            <select class="form-control" name="brand_id" id="brand_id">
+                                @foreach ($brands as $brand)
+                                    <option value="{{ $brand->id }}">{{ $brand->nama }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="form-row">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -14,7 +15,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::with('brand')->get();
         return view('cars.index', compact('cars'));
     }
 
@@ -25,7 +26,8 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('cars.create');
+        $brands = Brand::all();
+        return view('cars.create', compact('brands'));
     }
 
     /**
@@ -38,7 +40,7 @@ class CarController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'merk' => 'required',
+            'brand_id' => 'required',
             'tahun' => 'required',
             'harga' => 'required|numeric',
             'image' => 'required',
@@ -58,24 +60,28 @@ class CarController extends Controller
             $image_name = $request->file('image')->store('images', 'public');
         }
 
-        Car::create([
-            'nama' => $request->nama,
-            'merk' => $request->merk,
-            'deskripsi' => $request->deskripsi,
-            'tahun' => $request->tahun,
-            'harga' => $request->harga,
-            'image' => $image_name,
-            'status' => $request->status,
-            'isi_silinder' => $request->isi_silinder,
-            'transmisi' => $request->transmisi,
-            'tenaga' => $request->tenaga,
-            'torsi' => $request->torsi,
-            'bahan_bakar' => $request->bahan_bakar,
-            'kapasitas' => $request->kapasitas,
-            'panjang' => $request->panjang,
-            'tinggi' => $request->tinggi,
-            'lebar' => $request->lebar,
-        ]);
+        $car = new Car;
+        $car->nama = $request->get('nama');
+        $car->deskripsi = $request->get('deskripsi');
+        $car->tahun = $request->get('tahun');
+        $car->harga = $request->get('harga');
+        $car->image = $image_name;
+        $car->status = $request->get('status');
+        $car->isi_silinder = $request->get('isi_silinder');
+        $car->transmisi = $request->get('transmisi');
+        $car->tenaga = $request->get('tenaga');
+        $car->torsi = $request->get('torsi');
+        $car->bahan_bakar = $request->get('bahan_bakar');
+        $car->kapasitas = $request->get('kapasitas');
+        $car->panjang = $request->get('panjang');
+        $car->tinggi = $request->get('tinggi');
+        $car->lebar = $request->get('lebar');
+
+        $brand = new Brand;
+        $brand->id = $request->get('brand_id');
+
+        $car->brand()->associate($brand);
+        $car->save();
 
         return redirect()->route('cars.index');
     }
@@ -88,7 +94,7 @@ class CarController extends Controller
      */
     public function show($id)
     {
-        $car = Car::find($id);
+        $car = Car::with('brand')->where('id', $id)->first();
         return view('cars.detail', compact('car'));
     }
 
@@ -100,8 +106,9 @@ class CarController extends Controller
      */
     public function edit($id)
     {
-        $car = Car::find($id);
-        return view('cars.edit', compact('car'));
+        $car = Car::with('brand')->where('id', $id)->first();
+        $brands = Brand::all();
+        return view('cars.edit', compact('car', 'brands'));
     }
 
     /**
@@ -115,7 +122,7 @@ class CarController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'merk' => 'required',
+            'brand_id' => 'required',
             'tahun' => 'required',
             'harga' => 'required|numeric',
             'status' => 'required',
@@ -130,51 +137,36 @@ class CarController extends Controller
             'lebar' => 'required|numeric',
         ]);
 
-        $car = Car::find($id);
+        $car = Car::with('brand')->where('id', $id)->first();
+        $car->nama = $request->get('nama');
+        $car->deskripsi = $request->get('deskripsi');
+        $car->tahun = $request->get('tahun');
+        $car->harga = $request->get('harga');
+        $car->status = $request->get('status');
+        $car->isi_silinder = $request->get('isi_silinder');
+        $car->transmisi = $request->get('transmisi');
+        $car->tenaga = $request->get('tenaga');
+        $car->torsi = $request->get('torsi');
+        $car->bahan_bakar = $request->get('bahan_bakar');
+        $car->kapasitas = $request->get('kapasitas');
+        $car->panjang = $request->get('panjang');
+        $car->tinggi = $request->get('tinggi');
+        $car->lebar = $request->get('lebar');
 
-        if ($request->file('image') == '') {
-            $car->update([
-                'nama' => $request->nama,
-                'merk' => $request->merk,
-                'deskripsi' => $request->deskripsi,
-                'tahun' => $request->tahun,
-                'harga' => $request->harga,
-                'status' => $request->status,
-                'isi_silinder' => $request->isi_silinder,
-                'transmisi' => $request->transmisi,
-                'tenaga' => $request->tenaga,
-                'torsi' => $request->torsi,
-                'bahan_bakar' => $request->bahan_bakar,
-                'kapasitas' => $request->kapasitas,
-                'panjang' => $request->panjang,
-                'tinggi' => $request->tinggi,
-                'lebar' => $request->lebar,
-            ]);
-        } else {
+        if ($request->file('image')) {
             if ($car->image && file_exists(storage_path('app/public/' . $car->image))) {
                 \Storage::delete('public/' . $car->image);
             }
             $image_name = $request->file('image')->store('images', 'public');
 
-            $car->update([
-                'nama' => $request->nama,
-                'merk' => $request->merk,
-                'deskripsi' => $request->deskripsi,
-                'tahun' => $request->tahun,
-                'harga' => $request->harga,
-                'image' => $image_name,
-                'status' => $request->status,
-                'isi_silinder' => $request->isi_silinder,
-                'transmisi' => $request->transmisi,
-                'tenaga' => $request->tenaga,
-                'torsi' => $request->torsi,
-                'bahan_bakar' => $request->bahan_bakar,
-                'kapasitas' => $request->kapasitas,
-                'panjang' => $request->panjang,
-                'tinggi' => $request->tinggi,
-                'lebar' => $request->lebar,
-            ]);
+            $car->image = $image_name;
         }
+
+        $brand = new Brand;
+        $brand->id = $request->get('brand_id');
+
+        $car->brand()->associate($brand);
+        $car->save();
 
         return redirect()->route('cars.index');
     }

@@ -44,7 +44,7 @@
                             <tr>
                                 <td class="py-3">{{ $loop->iteration }}</td>
                                 <td class="py-3">{{ $car->nama }}</td>
-                                <td class="py-3">{{ $car->merk }}</td>
+                                <td class="py-3">{{ $car->brand->nama }}</td>
                                 <td class="py-3">{{ $car->transmisi }}</td>
                                 <td class="py-3">{{ $car->bahan_bakar }}</td>
                                 <td class="py-3">{{ $car->isi_silinder }} cc</td>

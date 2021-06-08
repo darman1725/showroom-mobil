@@ -17,7 +17,7 @@ class CarSeeder extends Seeder
         $cars = [
             [
                 'nama' => 'Daihatsu Rocky 1.0 R TC MT',
-                'merk' => 'Daihatsu',
+                'brand_id' => 2,
                 'deskripsi' => 'Daihatsu Rocky (A200), Mobil crossover SUV besutan Daihatsu ini semenjak dirilis Jepang pada ajang Tokyo Motor Show 2019 cukup menarik perhatian konsumen di tanah air. Pada 30 April 2021 Daihatsu Rocky resmi dirilis di Indonesia.',
                 'tahun' => '2021',
                 'harga' => 232400000,
@@ -35,7 +35,7 @@ class CarSeeder extends Seeder
             ],
             [
                 'nama' => 'Toyota Alphard 2.5 X AT',
-                'merk' => 'Toyota',
+                'brand_id' => 1,
                 'deskripsi' => 'Toyota sebagai raksasa otomotif asal Jepang ini merilis Alphard dan Vellfire untuk kalangan eksekutif. Keduanya hadir dengan beberapa perbedaan sesuai segmen pengguna masing-masing. Alphard menonjolkan desain dengan nuansa formal dan dinamis sehingga cocok untuk digunakan kalangan pejabat negara. Sementara itu, Vellfire menonjolkan kesan cool, modern, dengan kesan berani yang ditujukan kepada kalangan pengusaha atau selebriti.',
                 'tahun' => '2021',
                 'harga' => 1064000000,
@@ -53,7 +53,7 @@ class CarSeeder extends Seeder
             ],
             [
                 'nama' => 'Civic Type R 6 Speed MT',
-                'merk' => 'Honda',
+                'brand_id' => 3,
                 'deskripsi' => 'Honda sebagai salah satu produsen otomotif terbesar di dunia meluncurkan mobil sedan mewahnya, yaitu Honda Civic type R. Mobil yang memiliki tampilan sporty ini resmi diluncurkan di Indonesia pada tahun 2016 lalu. Honda Civic sudah mendapatkan tempat yang spesial di hati para pecinta otomotif Indonesia, khususnya para pecinta mobil sedan. Mobil ini memiliki performa handling yang mumpuni, serta kenyamanan khas mobil Honda.',
                 'tahun' => '2021',
                 'harga' => 1177000000,

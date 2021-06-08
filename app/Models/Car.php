@@ -16,7 +16,7 @@ class Car extends Model
      */
     protected $fillable = [
         'nama',
-        'merk',
+        'brand_id',
         'deskripsi',
         'tahun',
         'harga',
@@ -32,4 +32,9 @@ class Car extends Model
         'tinggi',
         'lebar',
     ];
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }

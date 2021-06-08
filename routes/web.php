@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,8 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.master_customer');
-});
+Route::get('/', [CustomerController::class, 'index']);
+Route::get('detail/{id}', [CustomerController::class, 'show'])->name('detail');
 
 Auth::routes();
 

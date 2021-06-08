@@ -28,6 +28,8 @@ Route::get('/master', function () {
     return view('layouts.master');
 });
 
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::resource('cars', CarController::class);
-Route::resource('brands', BrandController::class);
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('cars', CarController::class);
+    Route::resource('brands', BrandController::class);
+});

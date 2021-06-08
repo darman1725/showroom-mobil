@@ -151,6 +151,17 @@
                 </li>
                 <!-- End Dashboard -->
 
+                <!-- Data Merk Mobil -->
+                <li class="side-nav-menu-item">
+                    <a class="side-nav-menu-link media align-items-center" href="{{ route('brands.index') }}">
+                <span class="side-nav-menu-icon d-flex mr-3">
+                    <i class="gd-tag"></i>
+                </span>
+                        <span class="side-nav-fadeout-on-closed media-body">Data Merk</span>
+                    </a>
+                </li>
+                <!-- End Data Merk Mobil -->
+
                 <!-- Data Mobil -->
                 <li class="side-nav-menu-item">
                     <a class="side-nav-menu-link media align-items-center" href="{{ route('cars.index') }}">

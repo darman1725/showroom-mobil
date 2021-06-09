@@ -37,4 +37,9 @@ class Car extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

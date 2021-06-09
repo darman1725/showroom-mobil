@@ -120,7 +120,7 @@
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <a href=""><span class="car-option">Beli</span></a>
+                                        <a href="{{ route('transactions.create', $car->id) }}"><span class="car-option">Beli</span></a>
                                         <h6>Rp {{ number_format($car->harga, 0, ',', '.') }}</h6>
                                     </div>
                                 </div>

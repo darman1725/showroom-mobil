@@ -5,6 +5,7 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ use App\Http\Controllers\CustomerController;
 
 Route::get('/', [CustomerController::class, 'index']);
 Route::get('detail/{id}', [CustomerController::class, 'show'])->name('detail');
+Route::get('transactions/{id}/create', [TransactionController::class, 'create'])->name('transactions.create');
+Route::post('transactions', [TransactionController::class, 'store'])->name('transactions.store');
 
 Auth::routes();
 

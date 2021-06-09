@@ -14,7 +14,13 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function order()
+    {
+        $transactions = Transaction::where('status', 'Pending')->orderByDesc('created_at')->get();
+        return view('transactions.order', compact('transactions'));
+    }
+
+    public function history()
     {
         //
     }
@@ -79,9 +85,10 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaction $transaction)
+    public function show($id)
     {
-        //
+        $transaction = Transaction::find($id);
+        return view('transactions.detail', compact('transaction'));
     }
 
     /**

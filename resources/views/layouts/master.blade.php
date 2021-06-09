@@ -194,7 +194,7 @@
                     <!-- Transaksi: subTransaksi -->
                     <ul id="subUsers" class="side-nav-menu side-nav-menu-second-level mb-0">
                         <li class="side-nav-menu-item">
-                            <a class="side-nav-menu-link" href="#">Data Pesanan</a>
+                            <a class="side-nav-menu-link" href="{{ route('transactions.order') }}">Data Pesanan</a>
                         </li>
                         <li class="side-nav-menu-item">
                             <a class="side-nav-menu-link" href="#">Riwayat Transaksi</a>

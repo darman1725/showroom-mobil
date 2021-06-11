@@ -68,17 +68,17 @@ class TransactionController extends Controller
         $customer->tanggal_lahir = $request->tanggal_lahir;
         $customer->save();
 
-        Transaction::create([
-            'no_nota' => 'GR'.date('ymdhis'),
-            'customer_id' => $customer->id,
-            'car_id' => $request->car_id,
-            'tanggal_pemesanan' => date('Y-m-d'),
-            'tanggal_pengiriman' => $request->tanggal_pengiriman,
-            'jenis_pembayaran' => $request->jenis_pembayaran,
-            'status' => 'Pending',
-        ]);
+        $transaction = new Transaction;
+        $transaction->no_nota = 'GR'.date('ymdhis');
+        $transaction->customer_id = $customer->id;
+        $transaction->car_id = $request->car_id;
+        $transaction->tanggal_pemesanan = date('Y-m-d');
+        $transaction->tanggal_pengiriman = $request->tanggal_pengiriman;
+        $transaction->jenis_pembayaran = $request->jenis_pembayaran;
+        $transaction->status = 'Pending';
+        $transaction->save();
 
-        return redirect()->back();
+        return view('transactions.success', ['id' => $transaction->id]);
     }
 
     /**
@@ -131,5 +131,12 @@ class TransactionController extends Controller
     public function destroy(Transaction $transaction)
     {
         //
+    }
+
+    public function bukti($id)
+    {
+        $transaction = Transaction::find($id);
+        $pdf = PDF::loadview('transactions.bukti', compact('transaction'));
+        return $pdf->download();
     }
 }

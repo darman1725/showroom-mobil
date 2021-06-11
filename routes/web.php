@@ -22,6 +22,7 @@ Route::get('/', [CustomerController::class, 'index']);
 Route::get('detail/{id}', [CustomerController::class, 'show'])->name('detail');
 Route::get('transactions/{id}/create', [TransactionController::class, 'create'])->name('transactions.create');
 Route::post('transactions', [TransactionController::class, 'store'])->name('transactions.store');
+Route::get('transactions/{id}/bukti', [TransactionController::class, 'bukti'])->name('transactions.bukti');
 
 Auth::routes();
 

@@ -1,4 +1,4 @@
-@extends('layouts.master_customer');
+@extends('layouts.master_customer')
 
 @section('content')
 <!-- Breadcrumb End -->

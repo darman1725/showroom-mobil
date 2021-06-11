@@ -197,7 +197,7 @@
                             <a class="side-nav-menu-link" href="{{ route('transactions.order') }}">Data Pesanan</a>
                         </li>
                         <li class="side-nav-menu-item">
-                            <a class="side-nav-menu-link" href="#">Riwayat Transaksi</a>
+                            <a class="side-nav-menu-link" href="{{ route('transactions.history') }}">Riwayat Transaksi</a>
                         </li>
                     </ul>
                     <!-- End Transaksi: subTransaksi -->

@@ -23,7 +23,8 @@ class TransactionController extends Controller
 
     public function history()
     {
-        //
+        $transactions = Transaction::where('status', 'Selesai')->orderByDesc('created_at')->get();
+        return view('transactions.history', compact('transactions'));
     }
 
     /**

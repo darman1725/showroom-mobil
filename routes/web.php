@@ -19,6 +19,8 @@ use App\Http\Controllers\TransactionController;
 */
 
 Route::get('/', [CustomerController::class, 'index']);
+Route::post('/search', [CustomerController::class, 'search'])->name('search');
+Route::post('/filter', [CustomerController::class, 'filter'])->name('filter');
 Route::get('detail/{id}', [CustomerController::class, 'show'])->name('detail');
 Route::get('transactions/{id}/create', [TransactionController::class, 'create'])->name('transactions.create');
 Route::post('transactions', [TransactionController::class, 'store'])->name('transactions.store');

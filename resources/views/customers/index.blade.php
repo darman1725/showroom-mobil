@@ -30,49 +30,40 @@
                 <div class="car__sidebar">
                     <div class="car__search">
                         <h5>Car Search</h5>
-                        <form action="#">
-                            <input type="text" placeholder="Search...">
+                        <form action="{{ route('search') }}" method="POST">
+                            @csrf
+                            <input type="text" placeholder="Search..." name="keyword">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
                     <div class="car__filter">
                         <h5>Car Filter</h5>
-                        <form action="#">
-                            <select>
-                                <option data-display="Brand">Select Brand</option>
+                        <form action="{{ route('filter') }}" method="POST">
+                            @csrf
+                            <select name="merk">
+                                <option data-display="Merk" value="">Semua Merk</option>
                                 @foreach ($brands as $brand)
                                     <option value="{{ $brand->id }}">{{ $brand->nama }}</option>
                                 @endforeach
                             </select>
-                            <select>
-                                <option value="">Kondisi</option>
+                            <select name="kondisi">
+                                <option value="">Semua Kondisi</option>
                                 <option value="1">Baru</option>
                                 <option value="2">Bekas</option>
                             </select>
-                            <select>
-                                <option value="">Transmisi</option>
+                            <select name="transmisi">
+                                <option value="">Semua Transmisi</option>
                                 <option value="Manual">Manual</option>
                                 <option value="Otomatis">Otomatis</option>
                             </select>
-                            <select>
-                                <option value="">Kapasitas</option>
+                            <select name="kapasitas">
+                                <option value="">Semua Kapasitas</option>
                                 @for ($i = 1; $i < 10; $i++)
                                     <option value="{{ $i }}">{{ $i }} orang</option>
                                 @endfor
                             </select>
-                            <div class="filter-price">
-                                <p>Price:</p>
-                                <div class="price-range-wrap">
-                                    <div class="filter-price-range"></div>
-                                    <div class="range-slider">
-                                        <div class="price-input">
-                                            <input type="text" id="filterAmount">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="car__filter__btn">
-                                <button type="submit" class="site-btn">Reset FIlter</button>
+                                <button type="submit" class="site-btn">Filter</button>
                             </div>
                         </form>
                     </div>

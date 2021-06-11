@@ -34,4 +34,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('transactions/history', [TransactionController::class, 'history'])->name('transactions.history');
     Route::get('transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
     Route::put('transactions/{id}', [TransactionController::class, 'update'])->name('transactions.update');
+    Route::get('transactions/{id}/nota', [TransactionController::class, 'cetakNota'])->name('transactions.nota');
 });

@@ -117,12 +117,17 @@
             </div>
         </div>
         <div class="card-footer">
-            <form action="{{ route('transactions.update', $transaction->id) }}" method="POST">
-                @csrf
-                @method('PUT')
-                <button type="submit" class="btn btn-success">Pesanan Selesai & Cetak Nota</button>
-                <a href="{{ route('transactions.order') }}" class="btn btn-secondary">Kembali</a>
-            </form>
+            @if ($transaction->status == 'Pending')
+                <form action="{{ route('transactions.update', $transaction->id) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="btn btn-success">Pesanan Selesai & Cetak Nota</button>
+                    <a href="{{ route('transactions.order') }}" class="btn btn-secondary">Kembali</a>
+                </form>
+            @else
+                <a href="{{ route('transactions.nota', $transaction->id) }}" class="btn btn-success">Cetak Nota</a>
+                <a href="{{ route('transactions.history') }}" class="btn btn-secondary">Kembali</a>
+            @endif
         </div>
     </div>
 </div>

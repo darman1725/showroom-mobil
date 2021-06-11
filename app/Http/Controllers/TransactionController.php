@@ -139,4 +139,11 @@ class TransactionController extends Controller
         $pdf = PDF::loadview('transactions.bukti', compact('transaction'));
         return $pdf->download();
     }
+    
+    public function cetakNota($id)
+    {
+        $transaction = Transaction::find($id);
+        $pdf = PDF::loadview('transactions.invoice', compact('transaction'));
+        return $pdf->stream();
+    }
 }

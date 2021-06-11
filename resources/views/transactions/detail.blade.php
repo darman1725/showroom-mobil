@@ -28,11 +28,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="invoice-title d-flex justify-content-between">
-                            <h2>Invoice</h2>
-                            <h3>Order # {{ $transaction->no_nota }}</h3>
-                        </div>
-                        <hr>
                         <div class="row">
                             <div class="col-lg-6">
                                 <address>
@@ -122,7 +117,12 @@
             </div>
         </div>
         <div class="card-footer">
-            <a href="{{ route('transactions.order') }}" class="btn btn-secondary">Kembali</a>
+            <form action="{{ route('transactions.update', $transaction->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <button type="submit" class="btn btn-success">Pesanan Selesai & Cetak Nota</button>
+                <a href="{{ route('transactions.order') }}" class="btn btn-secondary">Kembali</a>
+            </form>
         </div>
     </div>
 </div>

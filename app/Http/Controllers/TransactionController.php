@@ -6,6 +6,7 @@ use App\Models\Transaction;
 use App\Models\Car;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use PDF;
 
 class TransactionController extends Controller
 {
@@ -109,9 +110,15 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transaction $transaction)
+    public function update(Request $request, $id)
     {
-        //
+        $transaction = Transaction::find($id);
+        $transaction->update([
+            'status' => 'Selesai',
+        ]);
+
+        $pdf = PDF::loadview('transactions.invoice', compact('transaction'));
+        return $pdf->stream();
     }
 
     /**

@@ -26,12 +26,6 @@ Route::get('transactions/{id}/bukti', [TransactionController::class, 'bukti'])->
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/master', function () {
-    return view('layouts.master');
-});
-
 Route::group(['middleware' => ['auth']], function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('cars', CarController::class);

@@ -109,7 +109,7 @@
                         <ul>
                             <li><span>Rp {{ number_format($car->harga, 0, ',', '.') }}</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Beli</a>
+                        <a href="{{ route('transactions.create', $car->id) }}" class="primary-btn">Beli</a>
                     </div>
                 </div>
             </div>

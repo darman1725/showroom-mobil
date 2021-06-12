@@ -30,7 +30,7 @@
                 <div class="car__sidebar">
                     <div class="car__search">
                         <h5>Car Search</h5>
-                        <form action="{{ route('search') }}" method="POST">
+                        <form action="{{ route('search') }}" method="GET">
                             @csrf
                             <input type="text" placeholder="Search..." name="keyword">
                             <button type="submit"><i class="fa fa-search"></i></button>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="car__filter">
                         <h5>Car Filter</h5>
-                        <form action="{{ route('filter') }}" method="POST">
+                        <form action="{{ route('filter') }}" method="GET">
                             @csrf
                             <select name="merk">
                                 <option data-display="Merk" value="">Semua Merk</option>
@@ -119,12 +119,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="pagination__option">
-                    <a href="#" class="active">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#"><span class="arrow_carrot-2right"></span></a>
-                </div>
+                {{ $cars->links() }}
             </div>
         </div>
     </div>

@@ -39,6 +39,7 @@ class BrandController extends Controller
         $request->validate([
             'nama' => 'required',
             'deskripsi' => 'required',
+            'biaya' => 'required',
             'image' => 'required',
         ]);
 
@@ -50,6 +51,7 @@ class BrandController extends Controller
             'nama' => $request->nama,
             'deskripsi' => $request->deskripsi,
             'image' => $image_name,
+            'biaya' => $request->biaya,
         ]);
 
         return redirect()->route('brands.index');
@@ -90,6 +92,9 @@ class BrandController extends Controller
         $request->validate([
             'nama' => 'required',
             'deskripsi' => 'required',
+            'image' => 'required',
+            'biaya' => 'required',
+           
         ]);
 
         $brand = Brand::find($id);
@@ -98,6 +103,9 @@ class BrandController extends Controller
             $brand->update([
                 'nama' => $request->nama,
                 'deskripsi' => $request->deskripsi,
+                'image' => $request->image,
+                'biaya' => $request->nama,
+
             ]);
         } else {
             if ($brand->image && file_exists(storage_path('app/public/' . $brand->image))) {
@@ -109,6 +117,7 @@ class BrandController extends Controller
                 'nama' => $request->nama,
                 'deskripsi' => $request->deskripsi,
                 'image' => $image_name,
+                'biaya' => $request->biaya,
             ]);
         }
 

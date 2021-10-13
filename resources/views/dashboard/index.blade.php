@@ -16,7 +16,7 @@
                 </div>
                 <div>
                     <h4 class="lh-1 mb-1">{{ $brand }}</h4>
-                    <h6 class="mb-0">Merk Mobil</h6>
+                    <h6 class="mb-0">Data Treatment</h6>
                 </div>
             </div>
             <!-- End Widget -->
@@ -30,7 +30,7 @@
                 </div>
                 <div>
                     <h4 class="lh-1 mb-1">{{ $car }}</h4>
-                    <h6 class="mb-0">Mobil Siap Jual</h6>
+                    <h6 class="mb-0">Treatment - Siap Guna</h6>
                 </div>
             </div>
             <!-- End Widget -->
@@ -44,7 +44,7 @@
                 </div>
                 <div>
                     <h4 class="lh-1 mb-1">{{ $transaction }}</h4>
-                    <h6 class="mb-0">Mobil Terjual</h6>
+                    <h6 class="mb-0">Treatment - Selesai</h6>
                 </div>
             </div>
             <!-- End Widget -->

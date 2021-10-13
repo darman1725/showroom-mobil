@@ -16,21 +16,9 @@ class Car extends Model
      */
     protected $fillable = [
         'nama',
-        'brand_id',
-        'deskripsi',
-        'tahun',
-        'harga',
+        'specialist',
         'image',
-        'status',
-        'isi_silinder',
-        'transmisi',
-        'tenaga',
-        'torsi',
-        'bahan_bakar',
-        'kapasitas',
-        'panjang',
-        'tinggi',
-        'lebar',
+        'jadwal',
     ];
 
     public function brand()

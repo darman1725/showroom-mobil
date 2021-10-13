@@ -16,21 +16,9 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('merk');
-            $table->text('deskripsi')->nullable();
-            $table->year('tahun');
-            $table->bigInteger('harga');
+            $table->string('specialist');
             $table->string('image');
-            $table->string('status');
-            $table->integer('isi_silinder');
-            $table->string('transmisi');
-            $table->integer('tenaga');
-            $table->integer('torsi');
-            $table->string('bahan_bakar');
-            $table->integer('kapasitas');
-            $table->integer('panjang');
-            $table->integer('tinggi');
-            $table->integer('lebar');
+            $table->string('jadwal');
             $table->timestamps();
         });
     }

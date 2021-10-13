@@ -18,6 +18,7 @@ class CreateBrandsTable extends Migration
             $table->string('nama');
             $table->text('deskripsi');
             $table->string('image');
+            $table->string('biaya');
             $table->timestamps();
         });
     }

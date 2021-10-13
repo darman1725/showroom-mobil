@@ -161,7 +161,7 @@
                 <span class="side-nav-menu-icon d-flex mr-3">
                     <i class="gd-tag"></i>
                 </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Data Merk</span>
+                        <span class="side-nav-fadeout-on-closed media-body">Data Treatment</span>
                     </a>
                 </li>
                 <!-- End Data Merk Mobil -->
@@ -172,7 +172,7 @@
                 <span class="side-nav-menu-icon d-flex mr-3">
                     <i class="gd-car"></i>
                 </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Data Mobil</span>
+                        <span class="side-nav-fadeout-on-closed media-body">Data Dokter</span>
                     </a>
                 </li>
                 <!-- End Data Mobil -->

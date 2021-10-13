@@ -3,7 +3,7 @@
 @section('content')
 <div class="py-4 px-3 px-md-4">
     <div class="mb-3 mb-md-4 d-flex justify-content-between">
-        <div class="h3 mb-0">Data Mobil</div>
+        <div class="h3 mb-0">Data Dokter</div>
     </div>
 
     <div class="card mb-3 mb-md-4">
@@ -14,13 +14,13 @@
                     <li class="breadcrumb-item">
                         <a href="#">Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Data Mobil</li>
+                    <li class="breadcrumb-item active" aria-current="page">Data Dokter</li>
                 </ol>
             </nav>
             <!-- End Breadcrumb -->
             
             <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                <a href="{{ route('cars.create') }}" class="btn btn-primary btn-sm"><i class="gd-plus"></i> Tambah Mobil Baru</a>
+                <a href="{{ route('cars.create') }}" class="btn btn-primary btn-sm"><i class="gd-plus"></i> Tambah Dokter Baru</a>
             </div>
 
 
@@ -29,13 +29,10 @@
                 <table class="table text-nowrap mb-0">
                     <thead>
                         <tr>
-                            <th class="font-weight-semi-bold border-top-0 py-2">#</th>
-                            <th class="font-weight-semi-bold border-top-0 py-2">Nama Mobil</th>
-                            <th class="font-weight-semi-bold border-top-0 py-2">Merk</th>
-                            <th class="font-weight-semi-bold border-top-0 py-2">Transmisi</th>
-                            <th class="font-weight-semi-bold border-top-0 py-2">Bahan Bakar</th>
-                            <th class="font-weight-semi-bold border-top-0 py-2">Mesin</th>
-                            <th class="font-weight-semi-bold border-top-0 py-2">Kapasitas</th>
+                            <th class="font-weight-semi-bold border-top-0 py-2">No</th>
+                            <th class="font-weight-semi-bold border-top-0 py-2">Nama Dokter</th>
+                            <th class="font-weight-semi-bold border-top-0 py-2">Specialist</th>
+                            <th class="font-weight-semi-bold border-top-0 py-2">Jadwal</th>
                             <th class="font-weight-semi-bold border-top-0 py-2">Actions</th>
                         </tr>
                     </thead>
@@ -44,11 +41,8 @@
                             <tr>
                                 <td class="py-3">{{ $loop->iteration }}</td>
                                 <td class="py-3">{{ $car->nama }}</td>
-                                <td class="py-3">{{ $car->brand->nama }}</td>
-                                <td class="py-3">{{ $car->transmisi }}</td>
-                                <td class="py-3">{{ $car->bahan_bakar }}</td>
-                                <td class="py-3">{{ $car->isi_silinder }} cc</td>
-                                <td class="py-3">{{ $car->kapasitas }} orang</td>
+                                <td class="py-3">{{ $car->specialist }}</td>
+                                <td class="py-3">{{ $car->jadwal }}</td>
                                 <td class="py-3">
                                     <div class="position-relative">
                                         <a class="link-dark d-inline-block" href="{{ route('cars.show', $car->id) }}">

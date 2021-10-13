@@ -18,6 +18,7 @@ class Brand extends Model
         'nama',
         'deskripsi',
         'image',
+        'biaya',
     ];
 
     public function cars()

@@ -3,7 +3,7 @@
 @section('content')
 <div class="py-4 px-3 px-md-4">
     <div class="mb-3 mb-md-4 d-flex justify-content-between">
-        <div class="h3 mb-0">Edit Merk</div>
+        <div class="h3 mb-0">Edit Treatment</div>
     </div>
 
     <div class="card mb-3 mb-md-4">
@@ -15,15 +15,15 @@
                         <a href="#">Dashboard</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#">Data Merk</a>
+                        <a href="#">Data Treatment</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Edit Merk</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Treatment</li>
                 </ol>
             </nav>
             <!-- End Breadcrumb -->
             
             <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                <div class="h3 mb-0">Form Edit Merk</div>
+                <div class="h3 mb-0">Form Edit Treatment</div>
             </div>
 
 
@@ -34,20 +34,26 @@
                     @method('PUT')
                     <div class="form-row">
                         <div class="form-group col-12 col-md-12">
-                            <label for="nama">Nama Merk</label>
+                            <label for="nama">Nama </label>
                             <input type="text" class="form-control" id="nama" name="nama" value="{{ $brand->nama }}">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-12 col-md-12">
-                            <label for="deskripsi">Deskripsi Merk</label>
+                            <label for="deskripsi">Deskripsi </label>
                             <textarea class="form-control" id="deskripsi" name="deskripsi" cols="30" rows="3">{{ $brand->deskripsi }}</textarea>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-12 col-md-12">
-                            <label for="image">Logo Merk</label>
+                            <label for="image">Gambar </label>
                             <input type="file" class="form-control" id="image" name="image" value="{{ $brand->image }}">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12 col-md-12">
+                            <label for="biaya">Biaya </label>
+                            <textarea class="form-control" id="biaya" name="biaya" cols="30" rows="3">{{ $brand->biaya }}</textarea>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary float-right">Submit</button>
